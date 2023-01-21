@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create rating</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<header>
+    <h1>Bienvenue sur appRating</h1>
+</header>
+<span class="body">
+    <h1> Créer un critère d'évaluation</h1>
+<a th:href="@{/}"> Revenir a la page d'acceuil</a> <br>
+
+    <form method="post" th:action="@{/addRating}">
+        <label>Denomination</label>
+        <input type="text"  th:field="${ratingForm.denomination}">
+
+        <label>Description</label>
+        <input type="text"  th:field="${ratingForm.description}">
+
+        <input type="submit" value="Soumettre" />
+    </form>
+
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="text-red"></div>
+</span>
+    <footer>
+    <h3>Copyright appRating Corporation</h3>
+</footer>
+</body>
+</html>

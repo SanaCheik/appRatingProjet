@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rate History</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <h1>Bienvenue sur appRating</h1>
+</header>
+<span class="body">
+<h1>Liste des notes</h1>
+<a th:href="@{/addRate}">Noter un critère</a><br>
+<a th:href="@{/}">Revenir à la page d'acceuil</a>
+<br/><br/>
+<div>
+    <p th:if="${rates.size()} == 0">Aucune note disponible</p>
+    <table border="1" th:if="${rates.size()} != 0">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Note</th>
+            <th>Comment</th>
+            <th>Critère évalué</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each ="rate : ${rates}">
+            <td th:text="${rate.id}">...</td>
+            <td th:text="${rate.note}">...</td>
+            <td th:text="${rate.comment}">...</td>
+            <td th:text="${rate.critere.denomination}">...</td>
+            <td th:text="${rate.createdAt}">...</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+    </span>
+    <footer>
+    <h3>Copyright appRating Corporation</h3>
+</footer>
+</body>
+</html>

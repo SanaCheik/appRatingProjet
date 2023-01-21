@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Liste des critères d'évaluation</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <h1>Bienvenue sur appRating</h1>
+</header>
+<span class="body">
+<h1>List des Rating</h1>
+<a th:href="@{/addRating}">Créer un critère d'évaluation</a><br>
+<a th:href="@{/}">Revenir à la page d'acceuil</a>
+<br/><br/>
+<div>
+    <p th:if="${ratings.size()} == 0">Aucun critère d'évaluation disponible</p>
+    <table border="1" th:if="${ratings.size()} != 0">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Denomination</th>
+            <th>Description</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each ="rating : ${ratings}">
+            <td th:text="${rating.id}">...</td>
+            <td th:text="${rating.denomination}">...</td>
+            <td th:text="${rating.description}">...</td>
+            <td th:text="${rating.createdAt}">...</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+    </span>
+    <footer>
+    <h3>Copyright appRating Corporation</h3>
+</footer>
+</body>
+</html>
